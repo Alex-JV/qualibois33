@@ -16,3 +16,13 @@ Lien public : https://alex-jv.github.io/qualibois33/
 
 Chaque `git push` sur `main` republie le dossier `site/` via `.github/workflows/pages.yml`
 (une minute environ). Les pages portent une balise `noindex` tant que c'est une maquette.
+
+## Démo : charpente qui s'assemble au défilement (29/10/2026)
+
+`site/demo-charpente.html` est une copie de l'accueil avec une section « Une charpente traditionnelle,
+pièce par pièce » insérée après la présentation : une vue éclatée isométrique (2 fermes, 5 pannes,
+24 chevrons) dessinée en SVG par `site/js/charpente-eclatee.js`, qui s'assemble au fil du défilement
+(section collante de 340vh, cinq étapes commentées). Styles dans `site/css/charpente-eclatee.css`.
+Aucune dépendance, ~8 Ko. Respecte `prefers-reduced-motion` (vue assemblée fixe). La page n'est pas
+reliée au menu. Pour l'intégrer à l'accueil : copier la section et les deux balises link/script
+dans `index.html`, puis supprimer la démo.

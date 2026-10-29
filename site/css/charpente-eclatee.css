@@ -1,0 +1,47 @@
+/* Section « charpente pièce par pièce » : vue éclatée qui s'assemble au défilement */
+.eclatee{padding-block:0;background:#fff;--haut-nav:0px}
+.eclatee-piste{height:340vh;position:relative}
+.eclatee-colle{position:sticky;top:var(--haut-nav);height:calc(100vh - var(--haut-nav));height:calc(100svh - var(--haut-nav));display:flex;align-items:center;overflow:hidden}
+.eclatee-grille{display:grid;grid-template-columns:minmax(280px,9fr) 11fr;gap:40px;align-items:center}
+.eclatee .titre{font-size:clamp(28px,3vw,42px)}
+.eclatee-etapes{list-style:none;margin:28px 0 0;padding:0}
+.eclatee-etapes li{position:relative;padding:9px 0 9px 46px;color:var(--gris);opacity:.42;transition:opacity .35s}
+.eclatee-etapes li::before{content:attr(data-num);position:absolute;left:0;top:9px;width:32px;height:32px;border-radius:50%;border:2px solid var(--brun);color:var(--brun);font-family:var(--display);font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center;transition:background .35s,color .35s}
+.eclatee-etapes li strong{display:block;font-family:var(--display);text-transform:uppercase;font-weight:600;font-size:22px;letter-spacing:.03em;color:var(--encre);line-height:1.15}
+.eclatee-etapes li span{display:block;font-size:16px;line-height:1.45;margin-top:2px}
+.eclatee-etapes li.active{opacity:1}
+.eclatee-etapes li.active::before,.eclatee-etapes li.faite::before{background:var(--brun);color:#fff}
+.eclatee-etapes li.faite{opacity:.7}
+.eclatee-aide{margin-top:22px;font-family:var(--display);text-transform:uppercase;letter-spacing:.1em;font-size:15px;color:var(--brun);display:flex;align-items:center;gap:10px;transition:opacity .4s}
+.eclatee-aide::before{content:"";width:12px;height:12px;border-right:2px solid var(--brun);border-bottom:2px solid var(--brun);transform:rotate(45deg) translate(-2px,-2px);animation:eclatee-rebond 1.6s ease-in-out infinite}
+.eclatee.assemblee .eclatee-aide{opacity:0}
+@keyframes eclatee-rebond{0%,100%{transform:rotate(45deg) translate(-2px,-2px)}50%{transform:rotate(45deg) translate(1px,1px)}}
+.eclatee-dessin{min-width:0}
+.charpente-dessin{display:block;width:100%;height:auto;max-height:calc(100vh - var(--haut-nav) - 48px);max-height:calc(100svh - var(--haut-nav) - 48px);overflow:visible}
+.charpente-dessin .sol{fill:var(--sable)}
+.charpente-dessin .pieces{stroke:rgba(55,34,18,.55);stroke-width:.9;stroke-linejoin:round;shape-rendering:geometricPrecision}
+.charpente-dessin .pieces g{will-change:transform}
+/* Version sans animation (prefers-reduced-motion) : tout est assemblé, la liste reste complète */
+.eclatee.statique{padding-block:clamp(56px,8vw,96px)}
+.eclatee.statique .eclatee-piste{height:auto}
+.eclatee.statique .eclatee-colle{position:static;height:auto}
+.eclatee.statique .eclatee-etapes li{opacity:1}
+.eclatee.statique .eclatee-aide{display:none}
+@media (max-width:1024px){
+  .eclatee-piste{height:300vh}
+  .eclatee-colle{align-items:start}
+  .eclatee-grille{grid-template-columns:1fr;gap:14px;align-content:start;padding-top:16px}
+  .eclatee-dessin{order:-1}
+  .charpente-dessin{max-height:42vh;max-height:42svh}
+  .eclatee .titre{font-size:24px;margin-top:4px}
+  .eclatee-etapes{margin-top:10px;min-height:96px}
+  .eclatee-etapes li:not(.active){display:none}
+  .eclatee.statique .eclatee-etapes li{display:block}
+  .eclatee-etapes li strong{font-size:20px}
+  .eclatee-aide{margin-top:10px}
+}
+@media (max-height:720px) and (min-width:1025px){
+  .eclatee .titre{font-size:26px}
+  .eclatee-etapes li{padding-block:6px}
+  .eclatee-etapes li span{font-size:15px}
+}
