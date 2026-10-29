@@ -8,3 +8,11 @@
 - `dist-artifact/` : fichier généré, ne pas modifier à la main.
 
 État : maquette v1.1 (accueil + 7 pages métier : Charpente, Couverture, Zinguerie, Ossature bois, Aménagement extérieur, Avant-toit, Gouttière aluminium). Textes, chiffres et photos provisoires, à valider avec Qualibois 33.
+
+## Mise en ligne de la maquette (GitHub Pages)
+
+Dépôt : https://github.com/Alex-JV/qualibois33 (compte Alex-JV, clé SSH `github.com-JV`).
+Lien public : https://alex-jv.github.io/qualibois33/
+
+Chaque `git push` sur `main` republie le dossier `site/` via `.github/workflows/pages.yml`
+(une minute environ). Les pages portent une balise `noindex` tant que c'est une maquette.
