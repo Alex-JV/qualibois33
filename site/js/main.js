@@ -11,6 +11,17 @@
       window.scrollTo(0, 0);
       window.addEventListener('load', function () { window.scrollTo(0, 0); html.style.scrollBehavior = ancien; });
     }
+    // Arrivée sur une ancre d'une autre page (ex. realisations.html#pool-house-terrasse) : le défilement doux
+    // annule parfois le saut au chargement, on le refait sans animation une fois la page chargée.
+    if (navType && navType.type === 'navigate' && location.hash.length > 1) {
+      var cible = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      if (cible) {
+        var h = document.documentElement, avant = h.style.scrollBehavior;
+        var sauter = function () { h.style.scrollBehavior = 'auto'; cible.scrollIntoView(); h.style.scrollBehavior = avant; };
+        sauter();
+        window.addEventListener('load', sauter);
+      }
+    }
   } catch (e) {}
   var burger = document.querySelector('.burger');
   var nav = document.querySelector('.nav');

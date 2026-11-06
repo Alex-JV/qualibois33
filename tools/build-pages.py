@@ -10,18 +10,18 @@ NAV = [
     ('charpente.html', 'Charpente'), ('couverture.html', 'Couverture'), ('zinguerie.html', 'Zinguerie'),
     ('ossature-bois.html', 'Ossature bois'), ('amenagement-exterieur.html', 'Aménagement extérieur'),
     ('avant-toit.html', 'Avant-toit'), ('gouttiere-aluminium.html', 'Gouttière alu'),
-    ('index.html#realisations', 'Réalisations'), ('index.html#equipe', "L'équipe"), ('index.html#contact', 'Contact'),
+    ('realisations.html', 'Réalisations'), ('index.html#equipe', "L'équipe"), ('index.html#contact', 'Contact'),
 ]
 
 # Cartes « autres métiers » (image, titre, phrase)
 CARTES = {
     'charpente': ('charpente-carport.jpg', 'Charpente', 'Charpentes traditionnelles et industrielles, en neuf comme en rénovation.'),
     'couverture': ('couverture-fenetre-toit.jpg', 'Couverture', 'Tuiles, toitures plates EPDM, isolation et fenêtres de toit.'),
-    'zinguerie': ('zinguerie-cheneau-zinc.jpg', 'Zinguerie', 'Gouttières, chéneaux, abergements et soudure zinc.'),
+    'zinguerie': ('zinguerie-cheneau-zinc.jpg', 'Zinguerie', 'Gouttières, abergements et soudure zinc.'),
     'ossature-bois': ('amenagement-pool-house.jpg', 'Ossature bois', 'Maisons à ossature bois, extensions, abris et pool houses.'),
     'amenagement-exterieur': ('amenagement-terrasse.jpg', 'Aménagement extérieur', 'Terrasses, pergolas, cabanons et locaux techniques en bois.'),
-    'avant-toit': ('gouttiere-03.jpg', 'Avant-toit', 'Rénovation en lambris et bandeaux, PVC ou bois.'),
-    'gouttiere-aluminium': ('gouttiere-camion-atelier-1030.jpg', 'Gouttière aluminium', 'Profilée sur place, sans soudure, plusieurs coloris.'),
+    'avant-toit': ('gouttiere-03.jpg', 'Avant-toit', 'Lambris PVC ou bois, bandeaux bois, PVC ou alu.'),
+    'gouttiere-aluminium': ('gouttiere-camion-atelier-1030.jpg', 'Gouttière aluminium', 'Profilée sur place, plusieurs coloris.'),
 }
 
 SPRITE = '''<svg hidden aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
@@ -102,12 +102,15 @@ def header(p):
 '''
 
 def hero(p):
-    if p.get('hero_mobile'):
+    if p.get('hero_portrait'):
+        img = (f'<img class="fond flou" src="img/{p["hero"]}" alt="" fetchpriority="high">'
+               f'<img class="portrait-net" src="img/{p["hero"]}" alt="">')
+    elif p.get('hero_mobile'):
         img = f'<picture><source media="(max-width: 1023px)" srcset="img/{p["hero_mobile"]}"><img class="fond" src="img/{p["hero"]}" alt="" fetchpriority="high"></picture>'
     else:
         img = f'<img class="fond" src="img/{p["hero"]}" alt="" fetchpriority="high">'
     return f'''
-<section class="hero hero-page" aria-labelledby="titre-page">
+<section class="hero hero-page{' hero-portrait' if p.get('hero_portrait') else ''}" aria-labelledby="titre-page">
   {img}
   <div class="container">
     <nav class="fil" aria-label="Fil d'Ariane"><a href="index.html">Accueil</a><span aria-hidden="true">›</span><span>{e(p['h1'])}</span></nav>
@@ -244,7 +247,7 @@ FOOTER = '''
     <div>
       <h3>L'entreprise</h3>
       <ul>
-        <li><a href="index.html#entreprise">Qui sommes-nous</a></li><li><a href="index.html#realisations">Réalisations</a></li><li><a href="index.html#equipe">L'équipe</a></li><li><a href="index.html#zone">Zone d'intervention</a></li><li><a href="index.html#contact">Contact et devis</a></li><li><a href="#">Mentions légales</a></li><li><a href="#">Politique de confidentialité</a></li>
+        <li><a href="index.html#entreprise">Qui sommes-nous</a></li><li><a href="realisations.html">Réalisations</a></li><li><a href="index.html#equipe">L'équipe</a></li><li><a href="index.html#zone">Zone d'intervention</a></li><li><a href="index.html#contact">Contact et devis</a></li><li><a href="#">Mentions légales</a></li><li><a href="#">Politique de confidentialité</a></li>
       </ul>
     </div>
     <div>
@@ -272,11 +275,64 @@ FOOTER = '''
 '''
 
 def build(p):
-    return head(p) + header(p) + hero(p) + intro(p) + colonnes(p) + etapes(p) + galerie(p) + autres(p) + cta(p) + FOOTER
+    return head(p) + header(p) + hero(p) + intro(p) + colonnes(p) + etapes(p) + galerie(p) + cta(p) + FOOTER
 
 from pages_data import PAGES
+from realisations_data import CHANTIERS
+
+REALISATIONS = {
+    'slug': 'realisations',
+    'title': "Réalisations : nos chantiers en Gironde · Qualibois 33",
+    'description': "Charpentes, toitures, zinguerie, gouttières aluminium, ossature bois et terrasses : découvrez les chantiers réalisés par Qualibois 33 en Gironde.",
+    'hero': 'hero-charpente-1500.jpg', 'hero_mobile': 'hero-charpente.jpg',
+    'kicker': "Nos chantiers en Gironde", 'h1': "Réalisations",
+    'sous': "Un aperçu de nos chantiers chez des particuliers de Gironde, en neuf comme en rénovation.",
+    'cta': "Un projet similaire ?",
+}
+
+def chantiers():
+    blocs = ''
+    for i, c in enumerate(CHANTIERS):
+        n = len(c['photos'])
+        figs = ''.join(
+            f'\n        <figure><button type="button" class="agrandir" aria-label="Agrandir : {e(alt)}"><img src="img/{img}" alt="{e(alt)}" loading="lazy"></button></figure>'
+            for img, alt in c['photos'])
+        fond = ' sable' if i % 2 else ''
+        blocs += f'''
+<section class="section chantier{fond}" id="{c['id']}">
+  <div class="container">
+    <div class="chantier-entete">
+      <p class="kicker">{e(c['metier'])} · Gironde</p>
+      <h2 class="titre">{e(c['titre'])}</h2>
+      <p>{e(c['texte'])}</p>
+    </div>
+    <div class="chantier-photos n{n}">{figs}
+    </div>
+  </div>
+</section>
+'''
+    return blocs
+
+VISIONNEUSE = '''
+<div class="visionneuse" hidden role="dialog" aria-modal="true" aria-label="Photo agrandie">
+  <button type="button" class="v-fermer" aria-label="Fermer">×</button>
+  <button type="button" class="v-prec" aria-label="Photo précédente">‹</button>
+  <figure><img alt=""><figcaption></figcaption></figure>
+  <button type="button" class="v-suiv" aria-label="Photo suivante">›</button>
+</div>
+'''
+
+def build_realisations():
+    p = REALISATIONS
+    pied = FOOTER.replace('<script src="js/main.js"></script>', '<script src="js/main.js"></script>\n<script src="js/realisations.js"></script>')
+    assert pied != FOOTER
+    return head(p) + header(p) + hero(p) + chantiers() + cta(p) + VISIONNEUSE + pied
+
 if __name__ == '__main__':
     for p in PAGES:
         out = SITE / f"{p['slug']}.html"
         out.write_text(build(p), encoding='utf-8')
         print('écrit', out.name, len(out.read_text(encoding='utf-8')), 'octets')
+    out = SITE / 'realisations.html'
+    out.write_text(build_realisations(), encoding='utf-8')
+    print('écrit', out.name, len(out.read_text(encoding='utf-8')), 'octets')

@@ -26,3 +26,16 @@ pièce par pièce » insérée après la présentation : une vue éclatée isom�
 Aucune dépendance, ~8 Ko. Respecte `prefers-reduced-motion` (vue assemblée fixe). La page n'est pas
 reliée au menu. Pour l'intégrer à l'accueil : copier la section et les deux balises link/script
 dans `index.html`, puis supprimer la démo.
+
+## Prévisualisation locale (06/11/2026)
+
+`python3 tools/serveur-local.py` sert `site/` sur http://127.0.0.1:8765/ sans cache navigateur
+(chaque rechargement montre la dernière version). On itère en local, on ne pousse sur GitHub
+que pour montrer une version au cousin.
+
+## Page Réalisations
+
+`site/realisations.html` est générée par `tools/build-pages.py` à partir de `tools/realisations_data.py`
+(un bloc par chantier, visionneuse plein écran dans `site/js/realisations.js`). Les six vignettes
+de l'accueil pointent vers `realisations.html#<id du chantier>`. Le regroupement des photos par
+chantier est provisoire, à valider avec Qualibois 33.
