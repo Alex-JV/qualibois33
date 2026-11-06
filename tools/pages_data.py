@@ -12,7 +12,7 @@ PAGES = [
  'intro_h2': "Une charpente faite pour durer",
  'intro_p': [
   "Qualibois 33 conçoit, fabrique et pose des charpentes en bois pour les maisons, les extensions, les abris et les préaux. Nous travaillons la charpente traditionnelle, assemblée pièce par pièce, comme la charpente industrielle à fermettes, plus rapide à poser sur une construction neuve.",
-  "Nous intervenons aussi sur l'existant : rénovation, renforcement et remplacement des pièces abîmées, pour redonner vie à une charpente ancienne avant de refaire la couverture.",
+  "Nous intervenons aussi sur l'existant : rénovation, renforcement et remplacement des pièces abîmées, pour redonner vie à une charpente ancienne.",
  ],
  'coches': ["Bois sélectionnés pour leur solidité et leur durabilité", "Fabrication sur mesure, adaptée à chaque toiture", "Charpente, couverture et zinguerie par la même équipe"],
  'intro_img': ('charpente-carport.jpg', "Charpente bois apparente d'un carport réalisé par Qualibois 33"),
