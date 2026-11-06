@@ -18,9 +18,9 @@ CARTES = {
     'charpente': ('charpente-carport.jpg', 'Charpente', 'Charpentes traditionnelles et industrielles, en neuf comme en rénovation.'),
     'couverture': ('couverture-fenetre-toit.jpg', 'Couverture', 'Tuiles, toitures plates EPDM, isolation et fenêtres de toit.'),
     'zinguerie': ('zinguerie-cheneau-zinc.jpg', 'Zinguerie', 'Gouttières, chéneaux, abergements et soudure zinc.'),
-    'ossature-bois': ('amenagement-pool-house.jpg', 'Ossature bois', 'Extensions, abris, pool houses et constructions bois sur mesure.'),
+    'ossature-bois': ('amenagement-pool-house.jpg', 'Ossature bois', 'Maisons à ossature bois, extensions, abris et pool houses.'),
     'amenagement-exterieur': ('amenagement-terrasse.jpg', 'Aménagement extérieur', 'Terrasses, pergolas, cabanons et locaux techniques en bois.'),
-    'avant-toit': ('hero-charpente-1500.jpg', 'Avant-toit', 'Auvents, préaux et débords de toit en charpente apparente.'),
+    'avant-toit': ('gouttiere-03.jpg', 'Avant-toit', 'Rénovation en lambris et bandeaux, PVC ou bois.'),
     'gouttiere-aluminium': ('gouttiere-camion-atelier-1030.jpg', 'Gouttière aluminium', 'Profilée sur place, sans soudure, plusieurs coloris.'),
 }
 
@@ -73,7 +73,7 @@ def header(p):
 
 <div class="topbar">
   <div class="container">
-    <div class="gauche">Charpente, couverture, zinguerie et aménagement extérieur à Cestas, en Gironde</div>
+    <div class="gauche">Charpente, toiture et construction bois à Cestas, en Gironde</div>
     <div class="droite">
       <a href="tel:+33666713607"><svg class="ico"><use href="#i-tel"/></svg>06 66 71 36 07</a>
       <a href="https://www.instagram.com/qualibois_33/" target="_blank" rel="noopener"><svg class="ico"><use href="#i-instagram"/></svg>Instagram</a>

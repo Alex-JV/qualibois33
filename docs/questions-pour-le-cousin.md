@@ -6,7 +6,7 @@
 ## 2. Tes infos de base
 - Les horaires exacts (le site actuel dit 8h-19h à un endroit et 8h-18h à un autre).
 - Depuis quand tu bosses à ton compte : on écrit « depuis 2018 » ou « depuis 2022 » ?
-- Combien vous êtes dans l'équipe, et le rôle de chacun en deux mots (Valentin, Christian, Adrien).
+- Le rôle de Valentin et d'Adrien en deux mots.
 - L'email à afficher : ton Gmail, ou une adresse en @qualibois33.com ?
 - Un numéro fixe en plus du portable ? WhatsApp oui ou non ?
 
@@ -22,8 +22,8 @@
 - Une photo de toute l'équipe et une photo de toi.
 
 ## 5. Ce qu'on raconte sur chaque métier
-- Ossature bois : qu'est-ce que tu fais exactement ? Extensions, surélévations, abris, pool houses, garages ?
-- Avant-toit : auvents, préaux, carports, prolongement de toiture ?
+- Ossature bois : en plus des maisons, tu fais aussi des extensions, surélévations, abris, pool houses ou garages ?
+- Avant-toit : des photos avant/après de rénovations en lambris et bandeaux, et les marques de PVC que tu poses.
 - Pour chaque métier, 3 ou 4 choses concrètes : les bois ou matériaux que tu utilises, les marques, les garanties, ce qui te différencie.
 
 ## 6. Tes chantiers
@@ -37,7 +37,7 @@
 - Les communes où tu interviens le plus, et jusqu'où tu acceptes d'aller.
 
 ## 9. Les chiffres
-- Combien de chantiers par an, nombre d'artisans, années d'expérience.
+- Combien de chantiers par an, années d'expérience.
 - Le devis est gratuit ? Tu réponds sous combien de temps ?
 
 ## 10. Pour la mise en ligne

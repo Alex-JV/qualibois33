@@ -172,7 +172,7 @@ p{margin:0 0 1em}
 .avis-carte .auteur{font-family:var(--display);text-transform:uppercase;letter-spacing:.06em;font-size:16px;color:var(--encre);margin-top:auto}
 
 /* Équipe */
-.equipe{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.equipe{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:900px;margin-inline:auto}
 .membre{min-width:0}
 .membre .portrait{position:relative;aspect-ratio:1/1;overflow:hidden;border-radius:var(--radius);background:var(--sable);max-width:100%}
 .membre img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(1);transition:filter .3s}
@@ -272,7 +272,9 @@ p{margin:0 0 1em}
   .nav .fermer{display:inline-flex;position:absolute;top:18px;right:18px;background:none;border:2px solid rgba(255,255,255,.5);color:#fff;border-radius:8px;padding:8px 12px;font-family:var(--display);text-transform:uppercase;letter-spacing:.08em;font-size:16px;cursor:pointer}
   .presentation,.vedette,.zone,.deux-colonnes,.contact{grid-template-columns:1fr;gap:36px}
   .cartes,.cartes.compactes,.galerie,.galerie.quatre,.colonnes,.etapes,.avis-liste{grid-template-columns:repeat(2,1fr)}
-  .equipe{grid-template-columns:repeat(2,1fr)}
+  .equipe{gap:12px}
+  .membre h3{font-size:20px}
+  .membre p{font-size:13px}
   .avis{grid-template-columns:1fr}
   .reassurance ul{grid-template-columns:repeat(2,1fr)}
   .footer .haut{grid-template-columns:1fr 1fr}
