@@ -6,6 +6,7 @@ import pathlib, html
 SITE = pathlib.Path(__file__).resolve().parent.parent / 'site'
 
 NAV = [
+    ('index.html', 'Accueil'),
     ('charpente.html', 'Charpente'), ('couverture.html', 'Couverture'), ('zinguerie.html', 'Zinguerie'),
     ('ossature-bois.html', 'Ossature bois'), ('amenagement-exterieur.html', 'Aménagement extérieur'),
     ('avant-toit.html', 'Avant-toit'), ('gouttiere-aluminium.html', 'Gouttière alu'),

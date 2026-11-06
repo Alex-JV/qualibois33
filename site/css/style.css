@@ -123,6 +123,15 @@ p{margin:0 0 1em}
 .carte .lien .ico{width:18px;height:18px;transition:transform .15s}
 .carte:hover .lien .ico{transform:translateX(4px)}
 .cartes.compactes{grid-template-columns:repeat(3,1fr)}
+.cartes.metiers{grid-template-columns:repeat(4,1fr);gap:22px}
+.cartes.metiers .carte h3{font-size:24px}
+.carte-devis{background:var(--brun);border-color:var(--brun);color:#fff;justify-content:center}
+.carte-devis:hover{transform:none;box-shadow:none}
+.carte-devis .corps{justify-content:center;gap:14px;padding:28px 24px}
+.carte-devis h3{color:#fff;font-size:30px}
+.carte-devis p{color:rgba(255,255,255,.88)}
+.carte-devis .btn{align-self:flex-start}
+.carte-devis .tel-carte{color:#fff;font-family:var(--display);font-weight:600;font-size:20px;letter-spacing:.04em;text-decoration:none}
 .cartes.compactes .carte .corps{padding:18px 20px 20px}
 .cartes.compactes .carte h3{font-size:23px}
 
@@ -245,8 +254,12 @@ p{margin:0 0 1em}
 .footer-bas a{color:#B9AB9B}
 
 /* Réactif */
+@media (max-width:1400px){
+  .nav a{font-size:16px;padding:13px 10px}
+}
 @media (max-width:1180px){
-  .nav a{font-size:16px;padding:13px 11px}
+  .nav a{font-size:15px;padding:12px 7px;letter-spacing:.05em}
+  .cartes.metiers{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:1024px){
   .burger{display:inline-flex}
@@ -273,7 +286,7 @@ p{margin:0 0 1em}
   .entete .btn{display:none}
   .hero{min-height:460px}
   .hero .container{padding-block:44px 40px}
-  .cartes,.cartes.compactes,.galerie,.galerie.quatre,.colonnes,.etapes,.avis-liste{grid-template-columns:1fr}
+  .cartes,.cartes.compactes,.cartes.metiers,.galerie,.galerie.quatre,.colonnes,.etapes,.avis-liste{grid-template-columns:1fr}
   .chiffres{grid-template-columns:repeat(2,1fr)}
   .reassurance ul{grid-template-columns:1fr;gap:0}
   .reassurance li{padding-block:12px;border-bottom:1px solid var(--ligne)}
